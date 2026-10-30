@@ -4,6 +4,12 @@ A browser-based guitar practice prototype built with Next.js, TypeScript, Tailwi
 
 把调音、节拍、指板和基础乐理练习集中在一个浏览器界面中。
 
+## Archived personal experiment / 已归档的个人实验
+
+Originally a toy project for exploring browser-based guitar tools. This repository is retained as a learning record and is no longer actively maintained. It is an experimental prototype; audio accuracy and reliability have not been systematically validated.
+
+最初是一个玩具项目，现保留代码作为学习与探索记录，不再主动维护。音频准确性与稳定性尚未经过系统验证，不应视为专业级练习工具。
+
 ## Explore the tools
 
 | Route | Tool |
@@ -53,8 +59,8 @@ The build configuration skips ESLint during builds, so run `npm run lint` separa
 - [lib/music-theory.ts](lib/music-theory.ts): music theory data and helpers
 - [components](components): shared interface components
 
-## Status and feedback
+## Status
 
-No hosted demo is currently listed in this repository. To report a problem, open an [issue](https://github.com/zhangfeng0423/guitar-tools/issues) with the tool route, browser, expected behavior and what happened.
+No hosted demo is currently listed in this repository. The code remains available for reference and local exploration. GitHub archiving makes the repository read-only; active support and issue handling are not provided.
 
-There is currently no LICENSE file in this repository. The previous MIT statement was not backed by a license file; a license needs to be chosen by the maintainer before additional permissions are claimed.
+There is currently no LICENSE file in this repository. The previous MIT statement was not backed by a license file.
