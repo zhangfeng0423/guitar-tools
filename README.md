@@ -1,178 +1,66 @@
-# Guitar Tool Station
+# Guitar Tools · 吉他练习工具箱
 
-A comprehensive web application for guitarists featuring professional-grade tools for practice, learning, and musical exploration.
+A browser-based guitar practice prototype built with Next.js, TypeScript, Tailwind CSS and the Web Audio API.
 
-## Features
+把调音、节拍、指板和基础乐理练习集中在一个浏览器界面中。
 
-### 🎯 **Guitar Tuner**
-- Accurate chromatic tuner with visual feedback
-- Multiple tuning presets (Standard, Drop D, Open G, DADGAD)
-- Auto-detect and manual modes
-- Adjustable sensitivity settings
-- Reference tone playback
+## Archived personal experiment / 已归档的个人实验
 
-### 🎵 **Chord Library**
-- Comprehensive chord charts with fingering diagrams
-- Interactive chord visualization
-- Searchable by name, category, and difficulty
-- Detailed fingering positions and techniques
+Originally a toy project for exploring browser-based guitar tools. This repository is retained as a learning record and is no longer actively maintained. It is an experimental prototype; audio accuracy and reliability have not been systematically validated.
 
-### ⚡ **Scale Finder**
-- Interactive scale patterns and modes
-- Fretboard visualization
-- Multiple scale types (Major, Minor, Pentatonic, Blues, Modes)
-- Note highlighting and interval display
+最初是一个玩具项目，现保留代码作为学习与探索记录，不再主动维护。音频准确性与稳定性尚未经过系统验证，不应视为专业级练习工具。
 
-### ⏰ **Metronome**
-- Adjustable tempo (40-208 BPM)
-- Multiple time signatures
-- Visual beat indicators
-- Accent patterns and subdivisions
+## Explore the tools
 
-### 🧭 **Circle of Fifths**
-- Interactive key relationship visualizer
-- Major and minor key exploration
-- Key signature reference
-- Chord progression insights
+| Route | Tool |
+| --- | --- |
+| `/tuner` | Microphone-based tuner and reference tones |
+| `/metronome` | Tempo and beat controls |
+| `/chords` | Chord diagrams |
+| `/scales` | Scale patterns |
+| `/fretboard` | Interactive fretboard |
+| `/circle-of-fifths` | Key relationships |
+| `/progressions` | Chord progression reference |
+| `/theory` | Music theory reference |
+| `/ear-training` | Interval and chord exercises |
+| `/practice-sessions` | Practice timer and sessions stored in this browser |
 
-### 🎸 **Interactive Fretboard**
-- Note mapping across the neck
-- Scale pattern visualization
-- Multiple viewing modes
-- Interval and root note highlighting
+This is a practice prototype. Tuner accuracy, audio timing, accessibility and cross-browser behavior still need systematic validation. Browser storage is local to the device and is not an account or cloud backup.
 
-### 🎼 **Chord Progressions**
-- Common progression library
-- Roman numeral analysis
-- Key transposition
-- Audio playback (planned)
+## Run locally
 
-### 📚 **Music Theory Guide**
-- Comprehensive theory reference
-- Interactive lessons
-- Difficulty-based filtering
-- Practical examples and applications
+Use Node.js compatible with the pinned Next.js 13.5.1 dependency and npm.
 
-### 👂 **Ear Training**
-- Interval recognition exercises
-- Chord identification training
-- Progressive difficulty levels
-- Score tracking and statistics
-
-### 🎯 **Practice Sessions**
-- Structured practice routines
-- Customizable session builder
-- Built-in timer and progress tracking
-- Practice item categorization
-
-## Technology Stack
-
-- **Frontend**: Next.js 13+ with App Router
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: Radix UI primitives with shadcn/ui
-- **Audio Processing**: Web Audio API
-- **Icons**: Lucide React
-- **TypeScript**: Full type safety throughout
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/guitar-tool-station.git
-cd guitar-tool-station
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
+git clone https://github.com/zhangfeng0423/guitar-tools.git
+cd guitar-tools
+npm ci
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open http://localhost:3000 . Allow microphone access when trying the tuner. Browsers require a secure context for microphone use: localhost during development, or HTTPS when hosted. Audio playback may require a user gesture.
 
-### Building for Production
+## Build a static site
 
 ```bash
+npm run lint
 npm run build
-npm start
 ```
 
-## Features in Detail
+`next.config.js` uses `output: 'export'`; the build writes a static site to `out/`. Serve that folder with a static HTTP server or static hosting. The `start` script invokes `next start`, which does not serve this export configuration.
 
-### Audio Processing
-The tuner and ear training modules use the Web Audio API for:
-- Real-time frequency analysis
-- Pitch detection algorithms
-- Audio synthesis for reference tones
-- Low-latency audio processing
+The build configuration skips ESLint during builds, so run `npm run lint` separately. A successful build alone is not lint verification.
 
-### Responsive Design
-- Mobile-first approach
-- Optimized for tablets and desktop
-- Touch-friendly interfaces
-- Adaptive layouts
+## Source guide
 
-### Accessibility
-- Keyboard navigation support
-- Screen reader compatibility
-- High contrast color schemes
-- Focus management
+- [app](app): pages for each tool
+- [hooks/use-microphone.ts](hooks/use-microphone.ts): microphone access
+- [lib/audio-utils.ts](lib/audio-utils.ts) and [lib/audio-player.ts](lib/audio-player.ts): audio helpers
+- [lib/music-theory.ts](lib/music-theory.ts): music theory data and helpers
+- [components](components): shared interface components
 
-### Performance
-- Optimized bundle sizes
-- Lazy loading of components
-- Efficient audio processing
-- Smooth animations and transitions
+## Status
 
-## Browser Compatibility
+No hosted demo is currently listed in this repository. The code remains available for reference and local exploration. GitHub archiving makes the repository read-only; active support and issue handling are not provided.
 
-- Chrome 88+
-- Firefox 85+
-- Safari 14+
-- Edge 88+
-
-**Note**: Microphone access required for tuner functionality.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Music theory concepts and educational content
-- Open source audio processing libraries
-- Guitar community feedback and suggestions
-- Web Audio API documentation and examples
-
-## Roadmap
-
-- [ ] MIDI device support
-- [ ] Audio recording and playback
-- [ ] Social features and sharing
-- [ ] Advanced chord voicings
-- [ ] Backing track integration
-- [ ] Mobile app versions
-- [ ] Offline functionality
-- [ ] User accounts and progress saving
-
----
-
-Built with ❤️ for the guitar community
+There is currently no LICENSE file in this repository. The previous MIT statement was not backed by a license file.
